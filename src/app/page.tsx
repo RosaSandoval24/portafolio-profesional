@@ -8,9 +8,9 @@ import { FaGraduationCap } from "react-icons/fa";
 export default function Home() {
 
 const imagenes = [
-  "/st-admin.png",
-  "/st-kiosco.png",
-  "/st-turno.png",
+  "/st-admin.PNG",
+  "/st-kiosco.PNG",
+  "/st-turno.PNG",
 ];
 
 const [imagenActual, setImagenActual] = useState(0);
