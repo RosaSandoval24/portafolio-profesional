@@ -15,6 +15,46 @@ const imagenes = [
 
 const [imagenActual, setImagenActual] = useState(0);
 
+const [proyectoActual, setProyectoActual] = useState(0);
+
+const proyectosSecundarios = [
+  {
+    titulo: "Generador de Contraseñas",
+    descripcion: "Aplicación web desarrollada con HTML, CSS y JavaScript para generar contraseñas seguras y personalizables. Permite configurar la longitud e incluir mayúsculas, minúsculas, números y símbolos.",
+     imagen: "/gp-1.PNG",
+     github: "https://github.com/RosaSandoval24/generador-contrasenas",
+     demo: "https://generador-contrasenas-theta.vercel.app",
+  },
+  {
+    titulo: "Generador de CV",
+    descripcion: "Proyecto en desarrollo para crear currículums profesionales en PDF.",
+    imagen: null,
+    github: null,
+    demo: null,
+  },
+  {
+    titulo: "To-Do App",
+    descripcion: "Próximo proyecto para gestión de tareas y organización personal.",
+    imagen: null,
+    github: null,
+    demo: null,
+  },
+];
+
+const siguienteProyecto = () => {
+  setProyectoActual(
+    (prev) => (prev + 1) % proyectosSecundarios.length
+  );
+};
+
+const proyectoAnterior = () => {
+  setProyectoActual(
+    (prev) =>
+      prev === 0
+        ? proyectosSecundarios.length - 1
+        : prev - 1
+  );
+};
 
 useEffect(() => {
   const intervalo = setInterval(() => {
@@ -156,6 +196,7 @@ useEffect(() => {
   </div>
 
   {/* PROYECTO PRINCIPAL */}
+
   <div className="mb-10 overflow-hidden rounded-3xl border border-purple-500/20 bg-white/5 backdrop-blur-sm">
     <div className="grid md:grid-cols-2">
       
@@ -224,49 +265,99 @@ useEffect(() => {
     </div>
   </div>
 
-  {/* PROYECTOS SECUNDARIOS */}
-  <div className="grid gap-8 md:grid-cols-2">
+<h3 className="mb-8 text-center text-3xl font-bold">
+  Otros Proyectos
+</h3>
 
-    <div className="rounded-3xl border border-purple-500/20 bg-white/5 p-8 transition duration-300 hover:-translate-y-2 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)]">
-      <div className="mb-6 flex h-40 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-900/40 to-black">
-        To-Do app 
-      </div>
+ {/* PROYECTOS SECUNDARIOS */}
+<div className="flex justify-center">
 
-      <h3 className="text-2xl font-bold">
-        Gestor de Tareas (To-Do App) 
-      </h3>
+  <div className="w-full max-w-5xl rounded-3xl border border-purple-500/20 bg-white/5 p-8 transition duration-300 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(168,85,247,0.25)]">
 
-      <p className="mt-3 text-gray-400">
-        Aplicación para gestionar tareas, 
-        organizar actividades y almacenar 
-        información localmente..
-      </p>
-    </div>
+    <div className="flex items-center justify-between gap-4">
 
-    <div className="rounded-3xl border border-purple-500/20 bg-white/5 p-8 transition duration-300 hover:-translate-y-2 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(168,85,247,0.35)]">
-      <div className="mb-6 flex h-40 items-center justify-center rounded-2xl bg-gradient-to-br from-purple-900/40 to-black">
-        CV Builder
-      </div>
+      <button
+        onClick={proyectoAnterior}
+        className="rounded-full border border-purple-500 px-4 py-2 text-xl transition hover:bg-purple-500/20"
+      >
+        ◀
+      </button>
 
-      <h3 className="text-2xl font-bold">
-        Generador de CV
-      </h3>
+      <div className="grid flex-1 gap-8 md:grid-cols-[300px_1fr]">
 
-      <p className="mt-3 text-gray-400">
-        Aplicación para crear currículums 
-        profesionales de forma dinámica y 
-        exportarlos en formato PDF.
-      </p>
-    </div>
+        <div className="flex items-center justify-center">
+
+          {proyectosSecundarios[proyectoActual].imagen ? (
+            <img
+              src={proyectosSecundarios[proyectoActual].imagen}
+              alt={proyectosSecundarios[proyectoActual].titulo}
+              className="max-h-72 rounded-2xl object-contain"
+            />
+          ) : (
+            <div className="flex h-52 w-full items-center justify-center rounded-2xl bg-gradient-to-br from-purple-900/40 to-black text-xl font-bold">
+              Próximamente
+            </div>
+          )}
 
         </div>
-  </section>
+
+        <div className="flex flex-col justify-center">
+
+          <h3 className="text-2xl font-bold">
+            {proyectosSecundarios[proyectoActual].titulo}
+          </h3>
+
+          <p className="mt-3 text-gray-400">
+            {proyectosSecundarios[proyectoActual].descripcion}
+          </p>
+
+          <div className="mt-6 flex gap-4">
+            {proyectosSecundarios[proyectoActual].github && (
+              <a
+                href={proyectosSecundarios[proyectoActual].github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl bg-purple-600 px-5 py-2 font-semibold transition hover:bg-purple-500"
+              >
+                GitHub
+              </a>
+            )}
+
+            {proyectosSecundarios[proyectoActual].demo && (
+              <a
+                href={proyectosSecundarios[proyectoActual].demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-xl border border-purple-500 px-5 py-2 font-semibold transition hover:bg-purple-500/20"
+              >
+                Ver Demo
+              </a>
+            )}
+          </div>
+
+        </div>
+
+      </div>
+
+      <button
+        onClick={siguienteProyecto}
+        className="rounded-full border border-purple-500 px-4 py-2 text-xl transition hover:bg-purple-500/20"
+      >
+        ▶
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
 <section
   id="habilidades"
   data-aos="fade-up"
   className="mx-auto max-w-7xl px-6 pt-4 py-16"
 >
+ </section>
 
 </section>
   <div className="mb-16 text-center">
