@@ -387,6 +387,7 @@ useEffect(() => {
         <li>Next.js</li>
         <li>Tailwind CSS</li>
         <li>Bootstrap</li>
+        <li>Vite</li>
       </ul>
     </div>
 
@@ -412,6 +413,7 @@ useEffect(() => {
       <ul className="space-y-3 text-gray-300">
         <li>MySQL</li>
         <li>SQL</li>
+        <li>MariaDB</li>
       </ul>
 
     </div>
@@ -427,6 +429,8 @@ useEffect(() => {
     <li>VS Code</li>
     <li>Postman</li>
     <li>Vercel</li>
+    <li>Railway</li>
+    <li>XAMPP</li>
   </ul>
   </div>
 
