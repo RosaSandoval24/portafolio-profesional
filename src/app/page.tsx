@@ -32,13 +32,14 @@ const proyectosSecundarios = [
     github: null,
     demo: null,
   },
-  {
-    titulo: "To-Do App",
-    descripcion: "Próximo proyecto para gestión de tareas y organización personal.",
-    imagen: null,
-    github: null,
-    demo: null,
-  },
+      {
+      titulo: "Café Aurora",
+      descripcion:
+        "Landing page moderna y responsive para una cafetería ficticia, enfocada en una experiencia visual cálida, navegación intuitiva y microinteracciones.",
+      imagen: "/hero-cafe.jpg",
+      github: "https://github.com/RosaSandoval24/cafe-aurora",
+      demo: "https://cafe-aurora-tawny.vercel.app",
+    },
 ];
 
 const siguienteProyecto = () => {
