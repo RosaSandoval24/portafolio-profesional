@@ -25,13 +25,14 @@ const proyectosSecundarios = [
      github: "https://github.com/RosaSandoval24/generador-contrasenas",
      demo: "https://generador-contrasenas-theta.vercel.app",
   },
-  {
-    titulo: "Generador de CV",
-    descripcion: "Proyecto en desarrollo para crear currículums profesionales en PDF.",
-    imagen: null,
-    github: null,
-    demo: null,
-  },
+        {
+        titulo: "TechNova",
+        descripcion:
+          "Landing page SaaS moderna y responsive para una empresa ficticia de tecnología, desarrollada con React, Vite y Tailwind CSS.",
+        imagen: "/technova.png",
+        github: "https://github.com/RosaSandoval24/technova",
+        demo: "https://technova-ten-lilac.vercel.app",
+      },
       {
       titulo: "Café Aurora",
       descripcion:
